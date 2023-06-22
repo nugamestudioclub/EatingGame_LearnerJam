@@ -1,8 +1,3 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c4itiuy21f61v"]
-
-[ext_resource type="Shader" path="res://shaders/PlayerShader.gdshader" id="1_uxrf3"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c4itiuy21f61v"]
 
 [resource]
-render_priority = 0
-shader = ExtResource("1_uxrf3")
-shader_parameter/offset = Vector3(0, 0, 0)

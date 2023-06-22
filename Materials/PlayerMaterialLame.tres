@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dhonoct3a6b07"]
+
+[resource]
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.15
+backlight_enabled = true
+backlight = Color(0.219608, 0.219608, 0.219608, 1)
