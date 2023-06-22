@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbbeqeb40ocl8"]
+
+[ext_resource type="PackedScene" uid="uid://cojwsnpuxmb3d" path="res://3DModels/Cube.glb" id="1_cff2m"]
+[ext_resource type="Script" path="res://scripts/PlayerMovement.cs" id="2_i645n"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.140457, 0.383215, 1.74875)
+projection = 1
+size = 2.194
+near = 0.003
+far = 4047.97
+
+[node name="Cube" parent="." instance=ExtResource("1_cff2m")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0176361, -0.2, -0.456739)
+script = ExtResource("2_i645n")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.944589, 0.328257, 0, -0.328257, 0.944589, 0, 0, 0)
