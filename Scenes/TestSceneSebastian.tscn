@@ -17,19 +17,19 @@ albedo_texture = ExtResource("3_xyrqi")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.971134, -0.0617256, 0.230408, -0.125201, 0.690282, 0.712626, -0.203034, -0.720903, 0.662629, -0.140457, 0.383215, 1.74875)
-projection = 1
-size = 2.194
-near = 0.001
-far = 4047.97
-
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="Player" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0999995, -0.00028266, 0.000166614, 0.00028274, 0.0999996, -4.78203e-05, -0.000166479, 4.82899e-05, 0.0999999, -0.0176361, -0.2, -0.456739)
 material_override = ExtResource("1_x3b7f")
 mesh = SubResource("BoxMesh_q1h2m")
 skeleton = NodePath("")
 script = ExtResource("2_i645n")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 15, 20)
+projection = 1
+size = 3.0
+near = 0.1
+far = 4047.97
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
