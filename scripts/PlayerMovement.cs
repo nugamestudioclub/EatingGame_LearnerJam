@@ -4,7 +4,11 @@ using System;
 public partial class PlayerMovement : CharacterBody3D
 {
 	[Export]
-	private float speed = 5;
+	public int Hunger { private set; get;}
+	[Export]
+	public int MaxHunger { private set; get;}
+	[Export]
+	private float Speed = 5;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -17,11 +21,26 @@ public partial class PlayerMovement : CharacterBody3D
 
 		Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-		velocity.X = direction.X * speed;
-		velocity.Z = direction.Z * speed;
+		velocity.X = direction.X * Speed;
+		velocity.Z = direction.Z * Speed;
 		velocity.Y = 0;
 
 		Velocity = velocity;
 		MoveAndSlide();
+		// Despawn any prey if collision
+		for (int i = 0; i < GetSlideCollisionCount(); i++)
+		{
+			KinematicCollision3D collision = GetSlideCollision(i);
+			if (collision.GetCollider().IsClass("Node"))
+			{
+				Node collider = (Node)collision.GetCollider();
+				if (collider.IsInGroup("prey"))
+				{
+					Hunger += 1;
+					collider.QueueFree();
+					GD.Print(Hunger);
+				}
+			}
+		}
 	}
 }
