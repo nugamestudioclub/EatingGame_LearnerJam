@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdiyjsw6nglnb"]
+[gd_scene load_steps=5 format=3 uid="uid://bdiyjsw6nglnb"]
 
 [ext_resource type="Material" uid="uid://df0kxolmkgbjb" path="res://Materials/PreyMaterial.tres" id="1_cyjlh"]
 [ext_resource type="Script" path="res://scripts/PreyComponent.cs" id="2_habob"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_i0bj6"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_ng2ig"]
 
-[node name="Prey" type="MeshInstance3D" groups=["prey"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+[node name="Prey" type="CharacterBody3D" groups=["prey"]]
+script = ExtResource("2_habob")
+
+[node name="PreyCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_i0bj6")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
 material_override = ExtResource("1_cyjlh")
 mesh = SubResource("BoxMesh_ng2ig")
-script = ExtResource("2_habob")
+skeleton = NodePath("../..")

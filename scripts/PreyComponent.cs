@@ -1,20 +1,32 @@
 using Godot;
 using System;
 
-public partial class PreyComponent : Node3D
+public partial class PreyComponent : CharacterBody3D
 {
+	[Export]
+	public float DistancePerMove { get; set; }
+	[Export]
+	public float Speed = 3f;
+	// Bounds represent global position
+	[Export]
+	public Rect2 Bounds { get; set; }
+	
 	private Vector3 destination;
-	private float speed = 1f;
+
+	private CollisionShape3D preyCollider;
+
+	private RandomNumberGenerator rn = new RandomNumberGenerator();
 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		preyCollider = GetNode<CollisionShape3D>("PreyCollider");
 	}
 
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		//We know where we want to go.
 		//Get our current position.
@@ -24,14 +36,27 @@ public partial class PreyComponent : Node3D
 		{
 			//We are at our desintation!
 			//Pick a new destination!
+			PickNewPosition();
 		}
+		// Move to destination
+		Velocity = myPosition.DirectionTo(destination) * Speed;
+		MoveAndSlide();
+		//MoveAndCollide(Velocity * (float) delta);
+	}
 
-		//figure out the vector towards our desintation.
-		Vector3 movementVector = (myPosition - destination).Normalized();
-		//Multiply our normal (1 length) vector with our speed to get our "next step in a frame" and
-		//add that with our current position
-		myPosition += movementVector * speed;
-		//set current position with temporary variable myPosiion.
-		Position = myPosition;
+	public void PickNewPosition()
+	{
+		Vector3 posOffset = new Vector3(rn.RandfRange(-1, 1), 0, rn.RandfRange(-1, 1)).Normalized() * DistancePerMove;
+		Vector3 globalPos = GlobalPosition + posOffset;
+		Vector2 worldPos = new Vector2(globalPos.X, globalPos.Z);
+		if (!Bounds.HasPoint(worldPos))
+		{
+			PickNewPosition();
+		}
+		else
+		{
+			destination = Position + posOffset;
+			GD.Print(destination);
+		}
 	}
 }
