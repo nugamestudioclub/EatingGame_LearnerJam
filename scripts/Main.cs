@@ -38,8 +38,8 @@ public partial class Main : Node
 			default:
 				break;
 		}
-        SpawnEnemies(preyCount);
-    }
+		SpawnEnemies(preyCount);
+	}
 
 	// Despawns all enemies and returns the number of enemies despawned
 	private int DespawnEnemies()
