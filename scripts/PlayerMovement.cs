@@ -6,9 +6,12 @@ public partial class PlayerMovement : CharacterBody3D
 	[Export]
 	public int Hunger { private set; get;}
 	[Export]
-	public int MaxHunger { private set; get;}
+	public int MinHunger { private set; get;}
+	private int overStuffed = 0;
 	[Export]
-	private float Speed = 5;
+	private float BaseSpeed = 5;
+	[Export]
+	private float SpeedPerOverstuff { set; get; }
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -17,12 +20,13 @@ public partial class PlayerMovement : CharacterBody3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
+		float speed = BaseSpeed + overStuffed * SpeedPerOverstuff;
 		Vector3 velocity = Velocity;
 
 		Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-		velocity.X = direction.X * Speed;
-		velocity.Z = direction.Z * Speed;
+		velocity.X = direction.X * speed;
+		velocity.Z = direction.Z * speed;
 		velocity.Y = 0;
 
 		Velocity = velocity;
@@ -37,8 +41,12 @@ public partial class PlayerMovement : CharacterBody3D
 				if (collider.IsInGroup("prey"))
 				{
 					Hunger += 1;
+					if (Hunger > MinHunger)
+					{
+						overStuffed += 1;
+					}
 					collider.QueueFree();
-					GD.Print(Hunger);
+					GD.Print(overStuffed);
 				}
 			}
 		}
