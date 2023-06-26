@@ -4,12 +4,12 @@ using System;
 public partial class PreyComponent : CharacterBody3D
 {
 	[Export]
-	public float DistancePerMove { get; set; }
+	private float DistancePerMove { get; set; }
 	[Export]
-	public float Speed = 3f;
+	private float Speed = 3f;
 	// Bounds represent global position
 	[Export]
-	public Rect2 Bounds { get; set; }
+	private Rect2 Bounds { get; set; }
 	
 	private Vector3 destination;
 
