@@ -6,9 +6,15 @@ public partial class Main : Node
 	[Export]
 	public PackedScene EnemyScene { get; set; }
 
+	[Export]
+	public int InitialEnemies { get; set; }
+
+	private GameState gameState = GameState.HAPPY;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		StartRound(InitialEnemies);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,8 +25,21 @@ public partial class Main : Node
 
 	public void NextRound()
 	{
-		SpawnEnemies(GetNextRoundCount(DespawnEnemies()));
+		int nextRoundEnemyCount = GetNextRoundCount(DespawnEnemies());
+		StartRound(nextRoundEnemyCount);
 	}
+
+	private void StartRound(int preyCount)
+	{
+		gameState = UpdateGameState(preyCount);
+		// TODO Update music and sprites
+		switch (gameState)
+		{
+			default:
+				break;
+		}
+        SpawnEnemies(preyCount);
+    }
 
 	// Despawns all enemies and returns the number of enemies despawned
 	private int DespawnEnemies()
@@ -51,6 +70,28 @@ public partial class Main : Node
 			prey.Position = spawnPosition;
 			AddChild(prey);
 		}
+	}
+
+	// Gets the game state based off the current number of prey
+	private GameState UpdateGameState(int preyCount)
+	{
+		if (preyCount < InitialEnemies * .25f)
+		{
+			return GameState.SAD;
+		} 
+		else if (preyCount < InitialEnemies * .5f)
+		{
+			return GameState.MEDIUM;
+		} 
+		else
+		{
+			return GameState.HAPPY;
+		}
+	}
+
+	enum GameState
+	{
+		HAPPY, MEDIUM, SAD
 	}
 
 }
