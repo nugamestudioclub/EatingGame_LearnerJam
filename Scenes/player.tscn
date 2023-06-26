@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://paqfq013fb25"]
+
+[ext_resource type="Material" uid="uid://dhonoct3a6b07" path="res://Materials/PlayerMaterialLame.tres" id="1_l8wox"]
+[ext_resource type="Script" path="res://scripts/PlayerMovement.cs" id="2_klal3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q1h2m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ovfcw"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("2_klal3")
+
+[node name="Player" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = ExtResource("1_l8wox")
+mesh = SubResource("BoxMesh_q1h2m")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ovfcw")
