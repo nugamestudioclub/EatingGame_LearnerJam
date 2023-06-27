@@ -100,7 +100,7 @@ public partial class Main : Node
 		}
 	}
 
-	enum GameState
+	public enum GameState
 	{
 		HAPPY, MEDIUM, SAD
 	}

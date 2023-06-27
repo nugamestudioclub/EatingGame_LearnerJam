@@ -57,7 +57,7 @@ public partial class PreyComponent : CharacterBody3D
 		else
 		{
 			destination = Position + posOffset;
-			GD.Print(destination);
+			//GD.Print(destination);
 		}
 	}
 }

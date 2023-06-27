@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbbeqeb40ocl8"]
+[gd_scene load_steps=10 format=3 uid="uid://dbbeqeb40ocl8"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_ioeao"]
+[ext_resource type="PackedScene" uid="uid://b6gu0jm60fqip" path="res://Scenes/fly prey.tscn" id="2_k0i20"]
 [ext_resource type="PackedScene" uid="uid://paqfq013fb25" path="res://Scenes/player.tscn" id="3_l7daa"]
 [ext_resource type="PackedScene" uid="uid://s4rmbabofjvp" path="res://Scenes/ladybug prey.tscn" id="3_letk5"]
 [ext_resource type="Texture2D" uid="uid://c1jkwoxxhvosj" path="res://icon.svg" id="3_xyrqi"]
@@ -14,7 +15,10 @@ albedo_texture = ExtResource("3_xyrqi")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_ioeao")
-EnemyScenes = Array[PackedScene]([ExtResource("3_letk5"), ExtResource("4_wbfkb"), ExtResource("5_uk26q")])
+EnemyScenes = Array[PackedScene]([ExtResource("3_letk5"), ExtResource("4_wbfkb"), ExtResource("5_uk26q"), ExtResource("2_k0i20")])
+InitialEnemies = 20
+spawnBounds = Rect2(-20, -20, 40, 40)
+spawnBoundSize = Vector2(10, 10)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, -2.18557e-08, -2.38419e-07, 2.38419e-07, -3.78552e-08, 1, -2.18557e-08, -1, -3.78552e-08, 0.45755, 20.7788, -0.84196)

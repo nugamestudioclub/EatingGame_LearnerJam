@@ -1,13 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8jd7cl8j4qyc"]
+[gd_scene load_steps=16 format=3 uid="uid://c8jd7cl8j4qyc"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_eq5pb"]
+[ext_resource type="PackedScene" uid="uid://s4rmbabofjvp" path="res://Scenes/ladybug prey.tscn" id="2_ugdjg"]
+[ext_resource type="PackedScene" uid="uid://m2vq0u4frk7m" path="res://Scenes/skeeter prey.tscn" id="3_tylex"]
 [ext_resource type="PackedScene" uid="uid://paqfq013fb25" path="res://Scenes/player.tscn" id="3_wm0v2"]
 [ext_resource type="PackedScene" uid="uid://by3fird66uv2v" path="res://grid_map.tscn" id="4_qgbbk"]
+[ext_resource type="PackedScene" uid="uid://bwqng6cspu6jk" path="res://Scenes/snail prey.tscn" id="4_utgrp"]
+[ext_resource type="PackedScene" uid="uid://b6gu0jm60fqip" path="res://Scenes/fly prey.tscn" id="5_4nchm"]
+[ext_resource type="Script" path="res://scripts/AudioManager.cs" id="8_b57rt"]
+[ext_resource type="AudioStream" uid="uid://dr1nski71tks6" path="res://Music/1-bonnobonon.wav" id="9_ch3e7"]
+[ext_resource type="AudioStream" uid="uid://bhsrau4iyi0e3" path="res://Music/2-somber_louder.wav" id="10_wujgp"]
+[ext_resource type="AudioStream" uid="uid://caips5a1e2a8l" path="res://Music/3-sadCompressed.mp3" id="11_nrgt7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q70bm"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycd5i"]
+size = Vector3(45, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0641j"]
+size = Vector3(45, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_071y5"]
+size = Vector3(1, 1, 46.9804)
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_eq5pb")
+EnemyScenes = Array[PackedScene]([ExtResource("2_ugdjg"), ExtResource("3_tylex"), ExtResource("4_utgrp"), ExtResource("5_4nchm")])
+InitialEnemies = 60
+spawnBounds = Rect2(-40, -40, 80, 80)
+spawnBoundSize = Vector2(15, 15)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.95009, 0)
@@ -17,12 +38,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.27238, 8.6805, 5.43351)
 light_energy = 2.829
 omni_range = 121.768
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.999995, -0.00317685, -0.000820563, 0.0028274, 0.707442, 0.706766, -0.00166479, -0.706764, 0.707447, 0, 5, 5)
-projection = 1
-size = 3.0
-near = 0.1
-far = 4047.97
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8678, -9.77237, 5.43351)
+light_energy = 2.829
+omni_range = 121.768
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.39623, 10.5672, -3.81519)
+light_energy = 2.829
+omni_range = 121.768
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0344, 10.5672, 24.5989)
+light_energy = 2.829
+omni_range = 121.768
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.12, 10.5672, -5.83823)
+light_energy = 2.829
+omni_range = 121.768
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.2533, 10.5672, -5.83823)
+light_energy = 2.829
+omni_range = 121.768
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 gi_mode = 0
@@ -31,6 +70,43 @@ mesh = SubResource("PlaneMesh_q70bm")
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_wm0v2")]
 BaseSpeed = 2.5
 
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866026, 0.5, -0.5, -0.433013, 0.75, 6, 6, 10)
+projection = 1
+size = 7.0
+near = 0.1
+far = 4047.97
+
 [node name="GridMap" parent="." instance=ExtResource("4_qgbbk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.9793)
+shape = SubResource("BoxShape3D_ycd5i")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.9463)
+shape = SubResource("BoxShape3D_0641j")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6285, 0, -0.176735)
+shape = SubResource("BoxShape3D_071y5")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2115, 0, -0.176735)
+shape = SubResource("BoxShape3D_071y5")
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("8_b57rt")
+
+[node name="Happy Song Player" type="AudioStreamPlayer" parent="Node3D"]
+stream = ExtResource("9_ch3e7")
+
+[node name="Medium Song Player" type="AudioStreamPlayer" parent="Node3D"]
+stream = ExtResource("10_wujgp")
+
+[node name="Sad Song Player" type="AudioStreamPlayer" parent="Node3D"]
+stream = ExtResource("11_nrgt7")
 
 [editable path="CharacterBody3D"]
