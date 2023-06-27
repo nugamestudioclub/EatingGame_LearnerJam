@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cn56i6eguseis"]
+
+[ext_resource type="Texture2D" uid="uid://k17nvo22cr4y" path="res://Sprites/Tiles/grass topright corner dirt.png" id="1_navki"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+disable_ambient_light = true
+albedo_texture = ExtResource("1_navki")
+texture_filter = 0
+texture_repeat = false

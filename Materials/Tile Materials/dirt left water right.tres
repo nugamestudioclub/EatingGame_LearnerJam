@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bfnvy3kbq3a1a"]
+
+[ext_resource type="Texture2D" uid="uid://o38etk0oywv4" path="res://Sprites/Tiles/dirt left water right.png" id="1_i37ns"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+disable_ambient_light = true
+albedo_texture = ExtResource("1_i37ns")
+texture_filter = 0
+texture_repeat = false

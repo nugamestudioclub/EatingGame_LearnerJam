@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bc31ut3fw8la6"]
+
+[resource]
+resource_name = "Material.001"
+cull_mode = 2
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+roughness = 0.5
+texture_filter = 0
+texture_repeat = false
