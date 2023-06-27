@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8jd7cl8j4qyc"]
+[gd_scene load_steps=19 format=3 uid="uid://c8jd7cl8j4qyc"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_eq5pb"]
 [ext_resource type="PackedScene" uid="uid://s4rmbabofjvp" path="res://Scenes/ladybug prey.tscn" id="2_ugdjg"]
@@ -8,13 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://bwqng6cspu6jk" path="res://Scenes/snail prey.tscn" id="4_utgrp"]
 [ext_resource type="PackedScene" uid="uid://b6gu0jm60fqip" path="res://Scenes/fly prey.tscn" id="5_4nchm"]
 [ext_resource type="Script" path="res://scripts/AudioManager.cs" id="8_b57rt"]
-[ext_resource type="Script" path="res://Scenes/TimerLabel.cs" id="8_vo412"]
 [ext_resource type="AudioStream" uid="uid://dr1nski71tks6" path="res://Music/1-bonnobonon.wav" id="9_ch3e7"]
 [ext_resource type="AudioStream" uid="uid://bhsrau4iyi0e3" path="res://Music/2-somber_louder.wav" id="10_wujgp"]
 [ext_resource type="AudioStream" uid="uid://caips5a1e2a8l" path="res://Music/3-sadCompressed.mp3" id="11_nrgt7"]
 [ext_resource type="PackedScene" uid="uid://cqll4f2ttihm1" path="res://Scenes/transition_rect.tscn" id="12_grem5"]
-[ext_resource type="FontFile" uid="uid://mrqt76tkt16l" path="res://Fonts/disposabledroid-bb.regular.ttf" id="13_adymr"]
-[ext_resource type="PackedScene" path="res://Scenes/HungerBar.tscn" id="14_vem8m"]
+[ext_resource type="PackedScene" uid="uid://buqka5navxqr1" path="res://DayTimer.tscn" id="13_davag"]
+[ext_resource type="PackedScene" uid="uid://dyd6ywdct3s2b" path="res://Scenes/HungerBar.tscn" id="14_vem8m"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q70bm"]
 
@@ -26,10 +25,6 @@ size = Vector3(45, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_071y5"]
 size = Vector3(1, 1, 46.9804)
-
-[sub_resource type="LabelSettings" id="LabelSettings_x88y5"]
-font = ExtResource("13_adymr")
-font_size = 30
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_eq5pb")
@@ -123,18 +118,15 @@ volume_db = -20.0
 
 [node name="TransitionRect" parent="." instance=ExtResource("12_grem5")]
 
-[node name="Timer" type="Label" parent="." node_paths=PackedStringArray("main")]
-offset_left = 225.0
-offset_top = 22.0
-offset_right = 528.0
-offset_bottom = 62.0
-text = "Daylight Remaining: 60"
-label_settings = SubResource("LabelSettings_x88y5")
-vertical_alignment = 1
-script = ExtResource("8_vo412")
-maxTime = 15.0
-main = NodePath("..")
+[node name="DayTimer" parent="." instance=ExtResource("13_davag")]
+offset_left = 17.0
+offset_top = 64.0
+offset_right = 323.0
+offset_bottom = 116.0
 
 [node name="HungerBar" parent="." instance=ExtResource("14_vem8m")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
 
 [editable path="Player"]

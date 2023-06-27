@@ -7,6 +7,8 @@ public partial class Main : Node
 	private TransitionRect transitionRect;
 	private HungerBar hungerBar;
 	private AudioManager manager;
+	private Timer timer;
+	private DayTimer dayTimer;
 
 	[Export]
 	public PackedScene[] EnemyScenes { get; set; }
@@ -31,7 +33,10 @@ public partial class Main : Node
 		transitionRect = GetNode<TransitionRect>("TransitionRect");
 		hungerBar = GetNode<HungerBar>("HungerBar");
 		manager = GetNode<AudioManager>("AudioManager");
+		timer = GetNode<Timer>("Timer");
+		dayTimer = GetNode<DayTimer>("DayTimer");
 		player.EatPrey += hungerBar.Update;
+		timer.Timeout += NextRound;
 		StartRound(InitialEnemies);
 	}
 
@@ -42,6 +47,7 @@ public partial class Main : Node
 		{
 			NextRound();
 		}
+		dayTimer.Update((int) timer.TimeLeft);
 	}
 
 	public void NextRound()
@@ -64,6 +70,8 @@ public partial class Main : Node
 				break;
 		}
 		SpawnEnemies(preyCount);
+		timer.Start(60);
+
 	}
 
 	// Despawns all enemies and returns the number of enemies despawned

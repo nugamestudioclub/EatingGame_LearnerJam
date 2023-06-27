@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://buqka5navxqr1"]
+
+[ext_resource type="Script" path="res://scripts/DayTimer.cs" id="1_i2wvv"]
+[ext_resource type="FontFile" uid="uid://mrqt76tkt16l" path="res://Fonts/disposabledroid-bb.regular.ttf" id="1_t4c50"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x88y5"]
+font = ExtResource("1_t4c50")
+font_size = 30
+
+[node name="DayTimer" type="ColorRect"]
+offset_right = 306.0
+offset_bottom = 52.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_i2wvv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Daylight Remaining: 60"
+label_settings = SubResource("LabelSettings_x88y5")
+horizontal_alignment = 1
+vertical_alignment = 1
