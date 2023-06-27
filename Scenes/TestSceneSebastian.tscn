@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbbeqeb40ocl8"]
+[gd_scene load_steps=9 format=3 uid="uid://dbbeqeb40ocl8"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_ioeao"]
-[ext_resource type="PackedScene" path="res://Scenes/prey.tscn" id="2_qwfsl"]
 [ext_resource type="PackedScene" uid="uid://paqfq013fb25" path="res://Scenes/player.tscn" id="3_l7daa"]
+[ext_resource type="PackedScene" uid="uid://s4rmbabofjvp" path="res://Scenes/ladybug prey.tscn" id="3_letk5"]
 [ext_resource type="Texture2D" uid="uid://c1jkwoxxhvosj" path="res://icon.svg" id="3_xyrqi"]
+[ext_resource type="PackedScene" uid="uid://m2vq0u4frk7m" path="res://Scenes/skeeter prey.tscn" id="4_wbfkb"]
+[ext_resource type="PackedScene" uid="uid://bwqng6cspu6jk" path="res://Scenes/snail prey.tscn" id="5_uk26q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8fdgr"]
 albedo_texture = ExtResource("3_xyrqi")
@@ -12,7 +14,7 @@ albedo_texture = ExtResource("3_xyrqi")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_ioeao")
-EnemyScene = ExtResource("2_qwfsl")
+EnemyScenes = Array[PackedScene]([ExtResource("3_letk5"), ExtResource("4_wbfkb"), ExtResource("5_uk26q")])
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, -2.18557e-08, -2.38419e-07, 2.38419e-07, -3.78552e-08, 1, -2.18557e-08, -1, -3.78552e-08, 0.45755, 20.7788, -0.84196)
@@ -26,5 +28,3 @@ mesh = SubResource("QuadMesh_d5yh6")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
-
-[node name="Prey" parent="." instance=ExtResource("2_qwfsl")]
