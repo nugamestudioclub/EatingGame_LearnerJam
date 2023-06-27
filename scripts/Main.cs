@@ -14,6 +14,8 @@ public partial class Main : Node
 	private Rect2 spawnBounds { get; set; }
 	[Export]
 	private Vector2 spawnBoundSize { get; set; }
+	[Export]
+	private AudioManager manager;
 
 	private GameState gameState = GameState.HAPPY;
 
@@ -96,19 +98,28 @@ public partial class Main : Node
 	// Gets the game state based off the current number of prey
 	private GameState UpdateGameState(int preyCount)
 	{
+		GameState newState;
+
 		if (preyCount < InitialEnemies * .25f)
 		{
-			return GameState.SAD;
+			manager.PlaySong(2);
+            newState=  GameState.SAD;
 		} 
 		else if (preyCount < InitialEnemies * .5f)
 		{
-			return GameState.MEDIUM;
+            manager.PlaySong(1);
+            newState = GameState.MEDIUM;
 		} 
 		else
 		{
-			return GameState.HAPPY;
+            manager.PlaySong(0);
+            newState = GameState.HAPPY;
 		}
-	}
+		GD.Print($"Game State: {newState}");
+		return newState;
+        
+
+    }
 
 	public enum GameState
 	{

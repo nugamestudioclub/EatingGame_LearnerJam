@@ -3,38 +3,21 @@ using System;
 
 public partial class AudioManager : Node3D
 {
-	[Export]
-	private AudioStreamPlayer[] players;
+	private AudioStreamPlayer[] players = new AudioStreamPlayer[3];
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
 		//load in each player
-	}
+		players[0] = GetNode<AudioStreamPlayer>("Happy Song Player");
+        players[1] = GetNode<AudioStreamPlayer>("Medium Song Player");
+        players[2] = GetNode<AudioStreamPlayer>("Sad Song Player");
+    }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
 
-	public void PlaySong(GameState gameState)
+	public void PlaySong(int trackNum)
 	{
-		switch(gameState)
-		{
-			case GameState.Happy:
-                players[0].Play();
-                players[1].Stop();
-                players[2].Stop();
-				break;
-            case GameState.Medium:
-                players[0].Stop();
-                players[1].Play();
-                players[2].Stop();
-                break;
-            case GameState.Sad:
-                players[0].Stop();
-                players[1].Stop();
-                players[2].Play();
-                break;
-        }
+        for (int i = 0; i < players.Length; ++i)
+            players[i].Stop();
+        players[trackNum].Play();
 	}
 }

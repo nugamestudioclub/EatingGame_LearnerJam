@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://c1stiuqn8yfbs"]
+[gd_scene load_steps=29 format=3 uid="uid://c1stiuqn8yfbs"]
 
 [ext_resource type="Material" uid="uid://c7hkeomb84bo5" path="res://Materials/Tile Materials/dirt center.tres" id="1_gna3a"]
 [ext_resource type="Material" uid="uid://b6bndoxm7jtsu" path="res://Materials/Tile Materials/grass center.tres" id="2_1tg3s"]
 [ext_resource type="Material" uid="uid://bfanpj1xksskn" path="res://Materials/Tile Materials/dirt botleft corner water.tres" id="4_0ajue"]
+[ext_resource type="Material" uid="uid://g6uodlmb73j7" path="res://Materials/Tile Materials/dirt botleft corner grass.tres" id="4_nrlxf"]
 [ext_resource type="Material" uid="uid://g6uodlmb73j7" path="res://Materials/Tile Materials/water center.tres" id="4_s6uxk"]
 [ext_resource type="Material" uid="uid://biwp0kyddwlfe" path="res://Materials/Tile Materials/dirt botright corner grass.tres" id="5_56fwn"]
 [ext_resource type="Material" uid="uid://btyseigmrrsa6" path="res://Materials/Tile Materials/dirt botright corner water.tres" id="6_jjtju"]
@@ -49,7 +50,7 @@ surface_material_override/0 = ExtResource("4_s6uxk")
 [node name="dirt botleft corner grass" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_yqci1")
 skeleton = NodePath("../TileMap")
-surface_material_override/0 = ExtResource("4_s6uxk")
+surface_material_override/0 = ExtResource("4_nrlxf")
 
 [node name="dirt botleft corner water" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_yqci1")
