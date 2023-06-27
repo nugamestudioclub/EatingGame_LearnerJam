@@ -3,10 +3,13 @@ using System;
 
 public partial class PlayerMovement : CharacterBody3D
 {
+	[Signal]
+	public delegate void EatPreyEventHandler(int curHunger, int minHunger);
+
 	[Export]
-	public int Hunger { private set; get;}
+	public int Hunger { set; get;}
 	[Export]
-	public int MinHunger { private set; get;}
+	public int MinHunger { set; get;}
 	private int overStuffed = 0;
 	[Export]
 	private float BaseSpeed = 5;
@@ -45,8 +48,8 @@ public partial class PlayerMovement : CharacterBody3D
 					{
 						overStuffed += 1;
 					}
+					EmitSignal(SignalName.EatPrey, Hunger, MinHunger);
 					collider.QueueFree();
-					GD.Print(overStuffed);
 				}
 			}
 		}
