@@ -8,8 +8,14 @@ public partial class Main : Node
 
 	[Export]
 	public int InitialEnemies { get; set; }
+	[Export]
+	private Rect2 spawnBounds { get; set; }
+	[Export]
+	private Vector2 spawnBoundSize { get; set; }
 
 	private GameState gameState = GameState.HAPPY;
+
+	private RandomNumberGenerator rn = new RandomNumberGenerator();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -66,8 +72,12 @@ public partial class Main : Node
 		for (int i = 0; i < count; i++)
 		{
 			PreyComponent prey = EnemyScene.Instantiate<PreyComponent>();
-			Vector3 spawnPosition = new Vector3();
-			prey.Position = spawnPosition;
+			Vector2 spawnPosition = new Vector2(
+				rn.RandfRange(spawnBounds.Position.X, spawnBounds.End.X - spawnBoundSize.X),
+				rn.RandfRange(spawnBounds.Position.Y, spawnBounds.End.Y - spawnBoundSize.Y));
+			Rect2 bounds = new Rect2(spawnPosition, spawnBoundSize);
+			prey.Position = new Vector3(bounds.GetCenter().X, 0, bounds.GetCenter().Y);
+			prey.Bounds = bounds;
 			AddChild(prey);
 		}
 	}

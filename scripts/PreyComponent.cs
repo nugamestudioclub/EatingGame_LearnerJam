@@ -4,12 +4,12 @@ using System;
 public partial class PreyComponent : CharacterBody3D
 {
 	[Export]
-	private float DistancePerMove { get; set; }
+	private float DistancePerMove = 6.5f;
 	[Export]
 	private float Speed = 3f;
 	// Bounds represent global position
 	[Export]
-	private Rect2 Bounds { get; set; }
+	public Rect2 Bounds { get; set; }
 	
 	private Vector3 destination;
 
@@ -21,6 +21,7 @@ public partial class PreyComponent : CharacterBody3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		PickNewPosition();
 		preyCollider = GetNode<CollisionShape3D>("PreyCollider");
 	}
 
