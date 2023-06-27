@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8jd7cl8j4qyc"]
+[gd_scene load_steps=18 format=3 uid="uid://c8jd7cl8j4qyc"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_eq5pb"]
 [ext_resource type="PackedScene" uid="uid://s4rmbabofjvp" path="res://Scenes/ladybug prey.tscn" id="2_ugdjg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bwqng6cspu6jk" path="res://Scenes/snail prey.tscn" id="4_utgrp"]
 [ext_resource type="PackedScene" uid="uid://b6gu0jm60fqip" path="res://Scenes/fly prey.tscn" id="5_4nchm"]
 [ext_resource type="Script" path="res://scripts/AudioManager.cs" id="8_b57rt"]
+[ext_resource type="Script" path="res://Scenes/TimerLabel.cs" id="8_vo412"]
 [ext_resource type="AudioStream" uid="uid://dr1nski71tks6" path="res://Music/1-bonnobonon.wav" id="9_ch3e7"]
 [ext_resource type="AudioStream" uid="uid://bhsrau4iyi0e3" path="res://Music/2-somber_louder.wav" id="10_wujgp"]
 [ext_resource type="AudioStream" uid="uid://caips5a1e2a8l" path="res://Music/3-sadCompressed.mp3" id="11_nrgt7"]
@@ -115,5 +116,16 @@ stream = ExtResource("11_nrgt7")
 volume_db = -20.0
 
 [node name="TransitionRect" parent="." instance=ExtResource("12_grem5")]
+
+[node name="Label" type="Label" parent="." node_paths=PackedStringArray("main")]
+offset_left = 35.0
+offset_top = 27.0
+offset_right = 257.0
+offset_bottom = 66.0
+text = "Daylight Remaining: 60"
+vertical_alignment = 1
+script = ExtResource("8_vo412")
+maxTime = 15.0
+main = NodePath("..")
 
 [editable path="CharacterBody3D"]
