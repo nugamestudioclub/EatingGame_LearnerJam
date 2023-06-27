@@ -1,0 +1,167 @@
+[gd_scene load_steps=28 format=3 uid="uid://c1stiuqn8yfbs"]
+
+[ext_resource type="Material" uid="uid://c7hkeomb84bo5" path="res://Materials/Tile Materials/dirt center.tres" id="1_gna3a"]
+[ext_resource type="Material" uid="uid://b6bndoxm7jtsu" path="res://Materials/Tile Materials/grass center.tres" id="2_1tg3s"]
+[ext_resource type="Material" uid="uid://bfanpj1xksskn" path="res://Materials/Tile Materials/dirt botleft corner water.tres" id="4_0ajue"]
+[ext_resource type="Material" uid="uid://g6uodlmb73j7" path="res://Materials/Tile Materials/water center.tres" id="4_s6uxk"]
+[ext_resource type="Material" uid="uid://biwp0kyddwlfe" path="res://Materials/Tile Materials/dirt botright corner grass.tres" id="5_56fwn"]
+[ext_resource type="Material" uid="uid://btyseigmrrsa6" path="res://Materials/Tile Materials/dirt botright corner water.tres" id="6_jjtju"]
+[ext_resource type="Material" uid="uid://bcumdpus7ejx7" path="res://Materials/Tile Materials/dirt bottom grass top.tres" id="7_bwbtu"]
+[ext_resource type="Material" uid="uid://can7wv2ts0xkd" path="res://Materials/Tile Materials/dirt bottom water top.tres" id="8_5u1cp"]
+[ext_resource type="Material" uid="uid://twpt0jy1167n" path="res://Materials/Tile Materials/dirt left grass right.tres" id="9_cdwo5"]
+[ext_resource type="Material" uid="uid://bfnvy3kbq3a1a" path="res://Materials/Tile Materials/dirt left water right.tres" id="10_nkekm"]
+[ext_resource type="Material" uid="uid://bn0yqabngn8l4" path="res://Materials/Tile Materials/dirt right grass left.tres" id="11_oapmq"]
+[ext_resource type="Material" uid="uid://d3o0e118ulpnd" path="res://Materials/Tile Materials/dirt right water left.tres" id="12_lufnp"]
+[ext_resource type="Material" uid="uid://cultal030qbxy" path="res://Materials/Tile Materials/water botleft corner dirt.tres" id="13_dw7ca"]
+[ext_resource type="Material" uid="uid://dctatbt842m3d" path="res://Materials/Tile Materials/dirt top grass bottom.tres" id="13_u6gye"]
+[ext_resource type="Material" uid="uid://dqrownk11je8e" path="res://Materials/Tile Materials/dirt top water bottom.tres" id="14_eygkw"]
+[ext_resource type="Material" uid="uid://cljepk0myt2ax" path="res://Materials/Tile Materials/water botright corner dirt.tres" id="14_si7qe"]
+[ext_resource type="Material" uid="uid://dqtt8inrcvurc" path="res://Materials/Tile Materials/water topleft corner dirt.tres" id="15_els56"]
+[ext_resource type="Material" uid="uid://ddpq4vk163gqe" path="res://Materials/Tile Materials/dirt topleft corner grass.tres" id="15_m8mxl"]
+[ext_resource type="Material" uid="uid://kvn4ko05w4u5" path="res://Materials/Tile Materials/water topright corner dirt.tres" id="16_o6q22"]
+[ext_resource type="Material" uid="uid://dk881wl5idwm5" path="res://Materials/Tile Materials/dirt topleft corner water.tres" id="16_oe1rn"]
+[ext_resource type="Material" uid="uid://dnjdcsqn6x4mv" path="res://Materials/Tile Materials/dirt topright corner grass.tres" id="17_m60ix"]
+[ext_resource type="Material" uid="uid://by4fms3j2jj3y" path="res://Materials/Tile Materials/dirt topright corner water.tres" id="18_7sl3a"]
+[ext_resource type="Material" uid="uid://dvx8epoxcf6kg" path="res://Materials/Tile Materials/grass botleft corner dirt.tres" id="19_e4ndj"]
+[ext_resource type="Material" uid="uid://cofaufjoqv60v" path="res://Materials/Tile Materials/grass botright corner dirt.tres" id="20_vkx3k"]
+[ext_resource type="Material" uid="uid://shncxwxrh4hu" path="res://Materials/Tile Materials/grass topleft corner dirt.tres" id="21_p2pjm"]
+[ext_resource type="Material" uid="uid://cn56i6eguseis" path="res://Materials/Tile Materials/grass topright corner dirt.tres" id="22_hpjs1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yqci1"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="dirt center" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("1_gna3a")
+
+[node name="grass center" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("2_1tg3s")
+
+[node name="water center" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("4_s6uxk")
+
+[node name="dirt botleft corner grass" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("4_s6uxk")
+
+[node name="dirt botleft corner water" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("4_0ajue")
+
+[node name="dirt botright corner grass" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("5_56fwn")
+
+[node name="dirt botright corner water" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("6_jjtju")
+
+[node name="dirt bottom grass top" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("7_bwbtu")
+
+[node name="dirt bottom water top" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("8_5u1cp")
+
+[node name="dirt left grass right" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("9_cdwo5")
+
+[node name="dirt left water right" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("10_nkekm")
+
+[node name="dirt right grass left" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("11_oapmq")
+
+[node name="dirt right water left" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("12_lufnp")
+
+[node name="dirt top grass bottom" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("13_u6gye")
+
+[node name="dirt top water bottom" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("14_eygkw")
+
+[node name="dirt topleft corner grass" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("15_m8mxl")
+
+[node name="dirt topleft corner water" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("16_oe1rn")
+
+[node name="dirt topright corner grass" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("17_m60ix")
+
+[node name="dirt topright corner water" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("18_7sl3a")
+
+[node name="grass botleft corner dirt" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("19_e4ndj")
+
+[node name="grass botright corner dirt" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("20_vkx3k")
+
+[node name="grass topleft corner dirt" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("21_p2pjm")
+
+[node name="grass topright corner dirt" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("22_hpjs1")
+
+[node name="water botleft corner dirt" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("13_dw7ca")
+
+[node name="water botright corner dirt" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("14_si7qe")
+
+[node name="water topleft corner dirt" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("15_els56")
+
+[node name="water topright corner dirt" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_yqci1")
+skeleton = NodePath("../TileMap")
+surface_material_override/0 = ExtResource("16_o6q22")

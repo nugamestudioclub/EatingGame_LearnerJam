@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://shncxwxrh4hu"]
+
+[ext_resource type="Texture2D" uid="uid://dc8jmv2uxc78b" path="res://Sprites/Tiles/grass topleft corner dirt.png" id="1_ne4bm"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+disable_ambient_light = true
+albedo_texture = ExtResource("1_ne4bm")
+texture_filter = 0
+texture_repeat = false

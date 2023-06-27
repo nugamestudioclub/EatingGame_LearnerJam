@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cljepk0myt2ax"]
+
+[ext_resource type="Texture2D" uid="uid://cbyinx4ssns3x" path="res://Sprites/Tiles/water botright corner dirt.png" id="1_v00qg"]
+
+[resource]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+disable_ambient_light = true
+albedo_texture = ExtResource("1_v00qg")
+texture_filter = 0
+texture_repeat = false

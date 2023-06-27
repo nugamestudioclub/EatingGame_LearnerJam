@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3dmfvaxbj16q"
-path="res://.godot/imported/dirt center.png-fe126644d0b9667daa6575f82e203eb4.ctex"
+uid="uid://cl6g6q7i7td76"
+path="res://.godot/imported/water botleft corner dirt.png-a1be2d7c7ce00f58399ddaf6695aa675.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tiles/dirt center.png"
-dest_files=["res://.godot/imported/dirt center.png-fe126644d0b9667daa6575f82e203eb4.ctex"]
+source_file="res://Sprites/Tiles/water botleft corner dirt.png"
+dest_files=["res://.godot/imported/water botleft corner dirt.png-a1be2d7c7ce00f58399ddaf6695aa675.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
