@@ -4,7 +4,7 @@ using System;
 public partial class Main : Node
 {
 	[Export]
-	public PackedScene EnemyScene { get; set; }
+	public PackedScene [] EnemyScenes { get; set; }
 
 	[Export]
 	public int InitialEnemies { get; set; }
@@ -71,7 +71,8 @@ public partial class Main : Node
 	{
 		for (int i = 0; i < count; i++)
 		{
-			PreyComponent prey = EnemyScene.Instantiate<PreyComponent>();
+			int randomIndex = rn.RandiRange(0, EnemyScenes.Length - 1);
+			PreyComponent prey = EnemyScenes[randomIndex].Instantiate<PreyComponent>();
 			Vector2 spawnPosition = new Vector2(
 				rn.RandfRange(spawnBounds.Position.X, spawnBounds.End.X - spawnBoundSize.X),
 				rn.RandfRange(spawnBounds.Position.Y, spawnBounds.End.Y - spawnBoundSize.Y));

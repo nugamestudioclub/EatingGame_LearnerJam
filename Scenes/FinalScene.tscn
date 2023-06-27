@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8jd7cl8j4qyc"]
+[gd_scene load_steps=5 format=3 uid="uid://c8jd7cl8j4qyc"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_eq5pb"]
-[ext_resource type="PackedScene" path="res://Scenes/prey.tscn" id="2_6jqma"]
 [ext_resource type="PackedScene" uid="uid://paqfq013fb25" path="res://Scenes/player.tscn" id="3_wm0v2"]
 [ext_resource type="PackedScene" uid="uid://by3fird66uv2v" path="res://grid_map.tscn" id="4_qgbbk"]
 
@@ -9,7 +8,6 @@
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_eq5pb")
-EnemyScene = ExtResource("2_6jqma")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.95009, 0)
