@@ -3,6 +3,8 @@ using System;
 
 public partial class Main : Node
 {
+	private TransitionRect transitionRect;
+
 	[Export]
 	public PackedScene EnemyScene { get; set; }
 
@@ -17,26 +19,34 @@ public partial class Main : Node
 
 	private RandomNumberGenerator rn = new RandomNumberGenerator();
 
+	private int round = 1;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		transitionRect = GetNode<TransitionRect>("TransitionRect");
 		StartRound(InitialEnemies);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		
+		if (Input.IsActionJustPressed("ui_accept"))
+		{
+			NextRound();
+		}
 	}
 
 	public void NextRound()
 	{
+		round++;
 		int nextRoundEnemyCount = GetNextRoundCount(DespawnEnemies());
 		StartRound(nextRoundEnemyCount);
 	}
 
 	private void StartRound(int preyCount)
 	{
+		transitionRect.Fade(round);
 		gameState = UpdateGameState(preyCount);
 		// TODO Update music and sprites
 		switch (gameState)

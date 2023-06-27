@@ -1,15 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8jd7cl8j4qyc"]
+[gd_scene load_steps=8 format=3 uid="uid://c8jd7cl8j4qyc"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_eq5pb"]
-[ext_resource type="PackedScene" path="res://Scenes/prey.tscn" id="2_6jqma"]
+[ext_resource type="PackedScene" uid="uid://bdiyjsw6nglnb" path="res://Scenes/prey.tscn" id="2_6jqma"]
+[ext_resource type="PackedScene" uid="uid://cqll4f2ttihm1" path="res://Scenes/transition_rect.tscn" id="3_tbcmh"]
 [ext_resource type="PackedScene" uid="uid://paqfq013fb25" path="res://Scenes/player.tscn" id="3_wm0v2"]
 [ext_resource type="PackedScene" uid="uid://by3fird66uv2v" path="res://grid_map.tscn" id="4_qgbbk"]
+[ext_resource type="Script" path="res://scripts/TransitionRect.cs" id="4_ymlae"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q70bm"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_eq5pb")
 EnemyScene = ExtResource("2_6jqma")
+
+[node name="TransitionRect" parent="." instance=ExtResource("3_tbcmh")]
+modulate = Color(1, 1, 1, 1)
+script = ExtResource("4_ymlae")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.95009, 0)
@@ -35,4 +41,5 @@ BaseSpeed = 2.5
 
 [node name="GridMap" parent="." instance=ExtResource("4_qgbbk")]
 
+[editable path="TransitionRect"]
 [editable path="CharacterBody3D"]
