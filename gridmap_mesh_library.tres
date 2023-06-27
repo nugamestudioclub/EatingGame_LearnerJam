@@ -209,7 +209,7 @@ data = {
 image = SubResource("Image_jaolt")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xloab"]
-material = ExtResource("13_xir1i")
+material = ExtResource("20_dpre1")
 
 [sub_resource type="Image" id="Image_ufl3i"]
 data = {
