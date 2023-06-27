@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://m2vq0u4frk7m"]
+
+[ext_resource type="PackedScene" path="res://Scenes/prey.tscn" id="1_wb7x7"]
+[ext_resource type="PackedScene" uid="uid://b3w7c4861mj1v" path="res://3DModels/skeeter.glb" id="2_pb4rv"]
+
+[node name="Prey" instance=ExtResource("1_wb7x7")]
+
+[node name="Mesh" parent="." index="1"]
+visible = false
+
+[node name="skeeter" parent="." index="2" instance=ExtResource("2_pb4rv")]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cxkj8gf30s8et"
-path="res://.godot/imported/fly.glb-137efadad4ee358d3acb44ffe30d06a9.scn"
+uid="uid://c2prted406yjj"
+path="res://.godot/imported/ladybug.glb-bb1db476776ddedd9ce97d8fd78045a4.scn"
 
 [deps]
 
-source_file="res://3DModels/fly.glb"
-dest_files=["res://.godot/imported/fly.glb-137efadad4ee358d3acb44ffe30d06a9.scn"]
+source_file="res://3DModels/ladybug.glb"
+dest_files=["res://.godot/imported/ladybug.glb-bb1db476776ddedd9ce97d8fd78045a4.scn"]
 
 [params]
 
@@ -33,6 +33,18 @@ _subresources={
 "Material.001": {
 "use_external/enabled": true,
 "use_external/path": "res://3DModels/Material.001.tres"
+}
+},
+"meshes": {
+"ladybug_ladybugbig": {
+"generate/lightmap_uv": 0,
+"generate/lods": 2,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": false,
+"save_to_file/make_streamable": "",
+"save_to_file/path": ""
 }
 }
 }

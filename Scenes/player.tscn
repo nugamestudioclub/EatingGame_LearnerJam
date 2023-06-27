@@ -1,21 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://paqfq013fb25"]
+[gd_scene load_steps=4 format=3 uid="uid://paqfq013fb25"]
 
-[ext_resource type="Material" uid="uid://dhonoct3a6b07" path="res://Materials/PlayerMaterialLame.tres" id="1_l8wox"]
+[ext_resource type="PackedScene" uid="uid://dksxhkx8m2tj0" path="res://slime animation.tscn" id="2_48h6a"]
 [ext_resource type="Script" path="res://scripts/PlayerMovement.cs" id="2_klal3"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_q1h2m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ovfcw"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
+[node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("2_klal3")
 
-[node name="Player" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-material_override = ExtResource("1_l8wox")
-mesh = SubResource("BoxMesh_q1h2m")
-skeleton = NodePath("")
+[node name="slime jam" parent="." instance=ExtResource("2_48h6a")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ovfcw")

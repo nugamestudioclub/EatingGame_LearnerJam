@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://s4rmbabofjvp"]
+
+[ext_resource type="PackedScene" path="res://Scenes/prey.tscn" id="1_r4rsu"]
+[ext_resource type="PackedScene" uid="uid://c2prted406yjj" path="res://3DModels/ladybug.glb" id="2_63yb3"]
+
+[node name="Prey" instance=ExtResource("1_r4rsu")]
+
+[node name="Mesh" parent="." index="1"]
+visible = false
+
+[node name="ladybug" parent="." index="2" instance=ExtResource("2_63yb3")]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwqng6cspu6jk"]
+
+[ext_resource type="PackedScene" path="res://Scenes/prey.tscn" id="1_0kr4o"]
+[ext_resource type="PackedScene" uid="uid://cdrshs0ksbvgj" path="res://3DModels/snail.glb" id="2_m310e"]
+
+[node name="Prey" instance=ExtResource("1_0kr4o")]
+
+[node name="Mesh" parent="." index="1"]
+visible = false
+
+[node name="snail" parent="." index="2" instance=ExtResource("2_m310e")]

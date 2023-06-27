@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8jd7cl8j4qyc"]
+[gd_scene load_steps=6 format=3 uid="uid://c8jd7cl8j4qyc"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_eq5pb"]
 [ext_resource type="PackedScene" path="res://Scenes/prey.tscn" id="2_6jqma"]
-[ext_resource type="PackedScene" uid="uid://b7h060doqxogk" path="res://Scenes/player.tscn" id="3_wm0v2"]
+[ext_resource type="PackedScene" uid="uid://paqfq013fb25" path="res://Scenes/player.tscn" id="3_wm0v2"]
 [ext_resource type="PackedScene" uid="uid://by3fird66uv2v" path="res://grid_map.tscn" id="4_qgbbk"]
-[ext_resource type="PackedScene" uid="uid://dqsm7olgr5gje" path="res://3DModels/slimeanimationjamming-loop.glb" id="5_3vf1p"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q70bm"]
 
@@ -20,8 +19,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.27238, 8.6805, 5.43351)
 light_energy = 2.829
 omni_range = 121.768
 
-[node name="Prey" parent="." instance=ExtResource("2_6jqma")]
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.999995, -0.00317685, -0.000820563, 0.0028274, 0.707442, 0.706766, -0.00166479, -0.706764, 0.707447, 0, 5, 5)
 projection = 1
@@ -34,28 +31,8 @@ gi_mode = 0
 mesh = SubResource("PlaneMesh_q70bm")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_wm0v2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-up_direction = Vector3(0, 0.577292, 0.816538)
-speed = 1.0
+BaseSpeed = 2.5
 
 [node name="GridMap" parent="." instance=ExtResource("4_qgbbk")]
 
-[node name="slimeanimationjamming-loop" parent="." instance=ExtResource("5_3vf1p")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-
-[node name="Skeleton3D" parent="slimeanimationjamming-loop/Armature" index="0"]
-bones/1/position = Vector3(0.0808013, 0.39473, 0)
-bones/1/rotation = Quaternion(0, 0, -0.104382, 0.994537)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/position = Vector3(0.294945, 1.46871, 0)
-bones/2/rotation = Quaternion(0, 0, -0.0989553, 0.995092)
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="slimeanimationjamming-loop"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 20, 10)
-light_energy = 2.829
-omni_range = 121.768
-
-[node name="Node3D" type="Node3D" parent="."]
-
 [editable path="CharacterBody3D"]
-[editable path="slimeanimationjamming-loop"]

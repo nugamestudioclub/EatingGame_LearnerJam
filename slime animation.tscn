@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dksxhkx8m2tj0"]
+[gd_scene load_steps=3 format=3 uid="uid://dksxhkx8m2tj0"]
 
 [ext_resource type="PackedScene" uid="uid://dqsm7olgr5gje" path="res://3DModels/slimeanimationjamming-loop.glb" id="1_y13je"]
+[ext_resource type="Script" path="res://SlimeAnimationPlayer.cs" id="2_fibao"]
 
 [node name="slimeanimationjamming-loop" instance=ExtResource("1_y13je")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/1/position = Vector3(0, 0.250764, 0)
-bones/2/position = Vector3(0.138, 1.387, 0)
-bones/2/rotation = Quaternion(0, 0, -0.0462479, 0.99893)
+bones/1/position = Vector3(-0.0775073, 0.383771, 0)
+bones/1/rotation = Quaternion(0, 0, 0.100128, 0.994975)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(-0.311567, 1.48036, 0)
+bones/2/rotation = Quaternion(0, 0, 0.104528, 0.994522)
 bones/2/scale = Vector3(1, 1, 1)
+
+[node name="AnimationPlayer" parent="." index="1"]
+method_call_mode = 1
+blend_times = [&"Jamming", &"Jamming", 300.0]
+script = ExtResource("2_fibao")
