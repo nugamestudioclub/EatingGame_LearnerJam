@@ -42,6 +42,10 @@ public partial class PreyComponent : CharacterBody3D
 		// Move to destination
 		Velocity = myPosition.DirectionTo(destination) * Speed;
 		MoveAndSlide();
+		if (GetLastSlideCollision() != null)
+		{
+			PickNewPosition();
+		}
 		//MoveAndCollide(Velocity * (float) delta);
 	}
 
