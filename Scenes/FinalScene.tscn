@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8jd7cl8j4qyc"]
+[gd_scene load_steps=21 format=3 uid="uid://c8jd7cl8j4qyc"]
 
 [ext_resource type="Script" path="res://scripts/Main.cs" id="1_eq5pb"]
 [ext_resource type="PackedScene" uid="uid://s4rmbabofjvp" path="res://Scenes/ladybug prey.tscn" id="2_ugdjg"]
@@ -13,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://bhsrau4iyi0e3" path="res://Music/2-somber_louder.wav" id="10_wujgp"]
 [ext_resource type="AudioStream" uid="uid://caips5a1e2a8l" path="res://Music/3-sadCompressed.mp3" id="11_nrgt7"]
 [ext_resource type="PackedScene" uid="uid://cqll4f2ttihm1" path="res://Scenes/transition_rect.tscn" id="12_grem5"]
+[ext_resource type="FontFile" uid="uid://mrqt76tkt16l" path="res://Fonts/disposabledroid-bb.regular.ttf" id="13_adymr"]
+[ext_resource type="PackedScene" path="res://Scenes/HungerBar.tscn" id="14_vem8m"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q70bm"]
 
@@ -25,13 +27,16 @@ size = Vector3(45, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_071y5"]
 size = Vector3(1, 1, 46.9804)
 
-[node name="Node3D" type="Node3D" node_paths=PackedStringArray("manager")]
+[sub_resource type="LabelSettings" id="LabelSettings_x88y5"]
+font = ExtResource("13_adymr")
+font_size = 30
+
+[node name="Node3D" type="Node3D"]
 script = ExtResource("1_eq5pb")
 EnemyScenes = Array[PackedScene]([ExtResource("2_ugdjg"), ExtResource("3_tylex"), ExtResource("4_utgrp"), ExtResource("5_4nchm")])
-InitialEnemies = 60
+InitialEnemies = 15
 spawnBounds = Rect2(-25, -25, 50, 50)
 spawnBoundSize = Vector2(15, 15)
-manager = NodePath("AudioManager")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.95009, 0)
@@ -70,10 +75,11 @@ omni_range = 121.768
 gi_mode = 0
 mesh = SubResource("PlaneMesh_q70bm")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("3_wm0v2")]
-BaseSpeed = 2.5
+[node name="Player" parent="." instance=ExtResource("3_wm0v2")]
+MinHunger = 5
+BaseSpeed = 3.5
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+[node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866026, 0.5, -0.5, -0.433013, 0.75, 6, 6, 10)
 projection = 1
 size = 7.0
@@ -117,15 +123,18 @@ volume_db = -20.0
 
 [node name="TransitionRect" parent="." instance=ExtResource("12_grem5")]
 
-[node name="Label" type="Label" parent="." node_paths=PackedStringArray("main")]
-offset_left = 35.0
-offset_top = 27.0
-offset_right = 257.0
-offset_bottom = 66.0
+[node name="Timer" type="Label" parent="." node_paths=PackedStringArray("main")]
+offset_left = 225.0
+offset_top = 22.0
+offset_right = 528.0
+offset_bottom = 62.0
 text = "Daylight Remaining: 60"
+label_settings = SubResource("LabelSettings_x88y5")
 vertical_alignment = 1
 script = ExtResource("8_vo412")
 maxTime = 15.0
 main = NodePath("..")
 
-[editable path="CharacterBody3D"]
+[node name="HungerBar" parent="." instance=ExtResource("14_vem8m")]
+
+[editable path="Player"]

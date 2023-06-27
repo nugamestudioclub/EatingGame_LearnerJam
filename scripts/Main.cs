@@ -3,10 +3,13 @@ using System;
 
 public partial class Main : Node
 {
+	private PlayerMovement player;
 	private TransitionRect transitionRect;
+	private HungerBar hungerBar;
+	private AudioManager manager;
 
 	[Export]
-	public PackedScene [] EnemyScenes { get; set; }
+	public PackedScene[] EnemyScenes { get; set; }
 
 	[Export]
 	public int InitialEnemies { get; set; }
@@ -14,8 +17,6 @@ public partial class Main : Node
 	private Rect2 spawnBounds { get; set; }
 	[Export]
 	private Vector2 spawnBoundSize { get; set; }
-	[Export]
-	private AudioManager manager;
 
 	private GameState gameState = GameState.HAPPY;
 
@@ -26,7 +27,11 @@ public partial class Main : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		player = GetNode<PlayerMovement>("Player");
 		transitionRect = GetNode<TransitionRect>("TransitionRect");
+		hungerBar = GetNode<HungerBar>("HungerBar");
+		manager = GetNode<AudioManager>("AudioManager");
+		player.EatPrey += hungerBar.Update;
 		StartRound(InitialEnemies);
 	}
 
@@ -48,6 +53,8 @@ public partial class Main : Node
 
 	private void StartRound(int preyCount)
 	{
+		player.Hunger = 0;
+		hungerBar.Update(player.Hunger, player.MinHunger);
 		transitionRect.Fade(round);
 		gameState = UpdateGameState(preyCount);
 		// TODO Update music and sprites
@@ -103,23 +110,23 @@ public partial class Main : Node
 		if (preyCount < InitialEnemies * .25f)
 		{
 			manager.PlaySong(2);
-            newState=  GameState.SAD;
+			newState=  GameState.SAD;
 		} 
 		else if (preyCount < InitialEnemies * .5f)
 		{
-            manager.PlaySong(1);
-            newState = GameState.MEDIUM;
+			manager.PlaySong(1);
+			newState = GameState.MEDIUM;
 		} 
 		else
 		{
-            manager.PlaySong(0);
-            newState = GameState.HAPPY;
+			manager.PlaySong(0);
+			newState = GameState.HAPPY;
 		}
 		GD.Print($"Game State: {newState}");
 		return newState;
-        
+		
 
-    }
+	}
 
 	public enum GameState
 	{
