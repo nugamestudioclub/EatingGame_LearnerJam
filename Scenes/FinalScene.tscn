@@ -12,8 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://bhsrau4iyi0e3" path="res://Music/2-somber_louder.wav" id="10_wujgp"]
 [ext_resource type="AudioStream" uid="uid://caips5a1e2a8l" path="res://Music/3-sadCompressed.mp3" id="11_nrgt7"]
 [ext_resource type="PackedScene" uid="uid://cqll4f2ttihm1" path="res://Scenes/transition_rect.tscn" id="12_grem5"]
-[ext_resource type="PackedScene" uid="uid://buqka5navxqr1" path="res://DayTimer.tscn" id="13_davag"]
-[ext_resource type="PackedScene" uid="uid://dyd6ywdct3s2b" path="res://Scenes/HungerBar.tscn" id="14_vem8m"]
+[ext_resource type="PackedScene" path="res://DayTimer.tscn" id="13_davag"]
+[ext_resource type="PackedScene" uid="uid://byi2kjuobvwy1" path="res://Scenes/HungerBar.tscn" id="14_vem8m"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q70bm"]
 
@@ -77,6 +77,7 @@ BaseSpeed = 3.5
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866026, 0.5, -0.5, -0.433013, 0.75, 6, 6, 10)
 projection = 1
+current = true
 size = 7.0
 near = 0.1
 far = 4047.97
