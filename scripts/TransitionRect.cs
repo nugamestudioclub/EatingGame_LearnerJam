@@ -21,14 +21,6 @@ public partial class TransitionRect : ColorRect
 	public void Fade(int day)
 	{
 		dayLabel.Text = String.Format("Day {0}", day);
-		if (Modulate.A == 0)
-		{
-			animPlayer.Play("FadeIn");
-			animPlayer.Queue("FadeOut");
-		}
-		else
-		{
-			animPlayer.Play("FadeOut");
-		}
+		animPlayer.Play("FadeOut");
 	}
 }
